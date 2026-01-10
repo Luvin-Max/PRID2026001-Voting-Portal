@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\luvin_flmz\\Desktop\\PRID2026001-Voting-Portal\\logs\\Controller-error\\.25e9263a613797170fb5c16a94abd139b129d62c-audit.json",
+    "files": [
+        {
+            "date": 1768075502290,
+            "name": "C:\\Users\\luvin_flmz\\Desktop\\PRID2026001-Voting-Portal\\logs\\Controller-error\\error-2026-01-11.log",
+            "hash": "5f1f5ff6b611247f5c7858e47d9f823c3a7d676ee2f3aa716a2c76083df99b32"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -1,0 +1,60 @@
+2026-01-10T20:05:03.410Z [INFO]: MongoDB connected.
+2026-01-10T20:05:03.412Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:05:18.305Z [INFO]: MongoDB connected.
+2026-01-10T20:05:18.307Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:05:21.540Z [INFO]: MongoDB connected.
+2026-01-10T20:05:21.547Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:05:23.428Z [INFO]: MongoDB connected.
+2026-01-10T20:05:23.431Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:05:45.397Z [INFO]: MongoDB connected.
+2026-01-10T20:05:45.401Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:05:52.437Z [INFO]: MongoDB connected.
+2026-01-10T20:05:52.440Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:05:53.692Z [ERROR]:  [UNCAUGHTEXCEPTION] : app.use() requires a middleware function {"stack":"TypeError: app.use() requires a middleware function\n    at Function.use (C:\\Users\\luvin_flmz\\Desktop\\PRID2026001-Voting-Portal\\node_modules\\express\\lib\\application.js:213:11)\n    at file:///C:/Users/luvin_flmz/Desktop/PRID2026001-Voting-Portal/server.js:23:5\n    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)"}
+2026-01-10T20:05:53.692Z [ERROR]:  [UNCAUGHTEXCEPTION] : app.use() requires a middleware function {"stack":"TypeError: app.use() requires a middleware function\n    at Function.use (C:\\Users\\luvin_flmz\\Desktop\\PRID2026001-Voting-Portal\\node_modules\\express\\lib\\application.js:213:11)\n    at file:///C:/Users/luvin_flmz/Desktop/PRID2026001-Voting-Portal/server.js:23:5\n    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)\n    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)"}
+2026-01-10T20:06:02.374Z [INFO]: MongoDB connected.
+2026-01-10T20:06:02.376Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:06:30.574Z [INFO]: MongoDB connected.
+2026-01-10T20:06:30.577Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:06:48.720Z [INFO]: MongoDB connected.
+2026-01-10T20:06:48.724Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:07:06.480Z [INFO]: MongoDB connected.
+2026-01-10T20:07:06.483Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:07:41.201Z [INFO]: MongoDB connected.
+2026-01-10T20:07:41.207Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:07:54.028Z [INFO]: MongoDB connected.
+2026-01-10T20:07:54.032Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:08:05.776Z [INFO]: MongoDB connected.
+2026-01-10T20:08:05.779Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:08:13.775Z [INFO]: MongoDB connected.
+2026-01-10T20:08:13.778Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:08:19.393Z [INFO]: MongoDB connected.
+2026-01-10T20:08:19.397Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:09:25.408Z [INFO]: MongoDB connected.
+2026-01-10T20:09:25.410Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:11:16.823Z [INFO]: MongoDB connected.
+2026-01-10T20:11:16.828Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:11:42.006Z [INFO]: MongoDB connected.
+2026-01-10T20:11:42.010Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:11:45.880Z [INFO]: MongoDB connected.
+2026-01-10T20:11:45.885Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:12:01.045Z [INFO]: MongoDB connected.
+2026-01-10T20:12:01.047Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:17:04.038Z [INFO]: MongoDB connected.
+2026-01-10T20:17:04.040Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:17:07.674Z [INFO]: MongoDB connected.
+2026-01-10T20:17:07.679Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:17:17.962Z [INFO]: MongoDB connected.
+2026-01-10T20:17:17.965Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:17:27.508Z [INFO]: MongoDB connected.
+2026-01-10T20:17:27.510Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:17:36.547Z [INFO]: MongoDB connected.
+2026-01-10T20:17:36.550Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:17:38.953Z [INFO]: MongoDB connected.
+2026-01-10T20:17:38.956Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:17:42.630Z [INFO]: MongoDB connected.
+2026-01-10T20:17:42.632Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:17:47.715Z [INFO]: MongoDB connected.
+2026-01-10T20:17:47.718Z [INFO]: Successfully connected to MongoDB
+2026-01-10T20:18:22.230Z [INFO]: MongoDB connected.
+2026-01-10T20:18:22.259Z [INFO]: Successfully connected to MongoDB

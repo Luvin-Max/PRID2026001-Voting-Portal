@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\luvin_flmz\\Desktop\\PRID2026001-Voting-Portal\\logs\\Api-request\\.58c9b19d7ee387099b9a436d20e57026dc74cf77-audit.json",
+    "files": [
+        {
+            "date": 1768075502292,
+            "name": "C:\\Users\\luvin_flmz\\Desktop\\PRID2026001-Voting-Portal\\logs\\Api-request\\request-2026-01-11.log",
+            "hash": "47aeea0ee71480f322ce7d93fcac064479846a927b77635c17d9271f58596bef"
+        }
+    ],
+    "hashType": "sha256"
+}
