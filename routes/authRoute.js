@@ -5,6 +5,8 @@ const router = Router();
 
 // Admin login route
 router.post("/admin/login", adminLogin);
-router.post("/login", loginUser);
+
+// User login route
+router.post("/user/login", loginUser);
 
 export default router;

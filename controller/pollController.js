@@ -6,7 +6,7 @@ export const createPoll = async (req, res, next) => {
   const { title, options, department, endDate } = req.body;
   try {
     // Check if admin has permission for this department
-    if (!req.admin.department.includes(department)) {
+    if (department !== "all" && !req.admin.department.includes(department)) {
       return next(
         new AppError("Unauthorized to create poll for this department", 403)
       );
@@ -34,7 +34,10 @@ export const createPoll = async (req, res, next) => {
 export const getPolls = async (req, res, next) => {
   try {
     const { department } = req.query;
-    const polls = await VotingModel.find({ department, isActive: true });
+    const polls = await VotingModel.find({
+      $or: [{ department }, { department: "all" }],
+      isActive: true,
+    });
     res.status(200).json({ success: true, polls });
   } catch (error) {
     return next(new AppError("Error fetching polls", 500));
@@ -48,6 +51,11 @@ export const votePoll = async (req, res, next) => {
     const poll = await VotingModel.findById(pollId);
     if (!poll || !poll.isActive) {
       return next(new AppError("Poll not found or inactive", 404));
+    }
+
+    // Check if user can vote on this poll
+    if (poll.department !== "all" && poll.department !== req.user.department) {
+      return next(new AppError("Unauthorized to vote on this poll", 403));
     }
 
     // Check if user already voted

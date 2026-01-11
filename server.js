@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import morgan from "morgan";
+import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import Database from "./config/db.js";
 import { corsOptions } from "./config/corsOrgine.js";
@@ -15,13 +16,23 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors(corsOptions));
-app.use(morgan("combined"));
+app.use(morgan("dev")); //combined
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // Routes
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send({ success: true, message: "Voting Portal API is running" });
+});
+// Debug endpoint: returns cookies and headers for troubleshooting authentication
+app.get("/debug/cookies", (req, res) => {
+  res
+    .status(200)
+    .json({
+      cookies: req.cookies || {},
+      authorization: req.headers.authorization || null,
+    });
 });
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);

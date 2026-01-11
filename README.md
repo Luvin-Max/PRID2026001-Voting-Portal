@@ -114,6 +114,26 @@ PRID2026001-Voting-Portal/
 
 ### Admin Routes (`/api/auth`)
 
+#### Admin Registration
+
+- **POST** `/api/user/admin/register`
+- **Description**: Register a new admin
+- **Payload**:
+  ```json
+  {
+    "email": "admin@college.edu",
+    "password": "adminpassword",
+    "department": ["Computer Science", "Electronics"]
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "success": true,
+    "message": "Admin registered successfully"
+  }
+  ```
+
 #### Admin Login
 
 - **POST** `/api/auth/admin/login`
@@ -132,6 +152,7 @@ PRID2026001-Voting-Portal/
     "token": "jwt_token_here"
   }
   ```
+- **Note**: Store the JWT token in an HTTP-only cookie for subsequent authenticated requests.
 
 ### User Routes (`/api/user`)
 
@@ -162,7 +183,7 @@ PRID2026001-Voting-Portal/
 
 #### User Login
 
-- **POST** `/api/user/login`
+- **POST** `/api/auth/user/login`
 - **Description**: Authenticate user with fingerprint
 - **Payload**:
   ```json
@@ -180,11 +201,17 @@ PRID2026001-Voting-Portal/
     "userId": "user_id"
   }
   ```
+- **Note**: Store the JWT token in an HTTP-only cookie for subsequent authenticated requests.
 
 #### Get User Profile
 
 - **GET** `/api/user/profile`
 - **Headers**: `Authorization: Bearer <token>`
+- **Description**: Retrieve the authenticated user's profile information
+- **Note**: Store the JWT token received from login in an HTTP-only cookie on the frontend. If your frontend is on a different origin, ensure you:
+  - enable credentials in requests (e.g., `fetch(..., { credentials: 'include' })` or `axios.defaults.withCredentials = true`)
+  - the server CORS `credentials` is enabled (already set in this project)
+  - in development the cookie is set with `SameSite=Lax`; in production `SameSite=None; Secure` is used so cross-site cookies will work over HTTPS.
 - **Response**:
   ```json
   {
@@ -206,12 +233,13 @@ PRID2026001-Voting-Portal/
 - **POST** `/api/voting/create`
 - **Headers**: `Authorization: Bearer <admin_token>`
 - **Description**: Create a new voting poll
+- **Note**: Store the admin JWT token in an HTTP-only cookie after login. Retrieve it from the cookie and include in the Authorization header for admin requests.
 - **Payload**:
   ```json
   {
     "title": "Class Representative Election",
     "options": ["Candidate A", "Candidate B", "Candidate C"],
-    "department": "Computer Science",
+    "department": "Computer Science", // or "all" to make it available to all departments
     "endDate": "2026-01-20T23:59:59Z"
   }
   ```
@@ -234,7 +262,7 @@ PRID2026001-Voting-Portal/
 #### Get Polls
 
 - **GET** `/api/voting/?department=Computer Science`
-- **Description**: Get active polls for a department
+- **Description**: Get active polls for a department (includes polls specific to the department and polls available to all departments)
 - **Response**:
   ```json
   {
@@ -245,6 +273,12 @@ PRID2026001-Voting-Portal/
         "options": ["Candidate A", "Candidate B", "Candidate C"],
         "department": "Computer Science",
         "endDate": "2026-01-20T23:59:59.000Z"
+      },
+      {
+        "title": "College President Election",
+        "options": ["Candidate X", "Candidate Y"],
+        "department": "all",
+        "endDate": "2026-01-25T23:59:59.000Z"
       }
     ]
   }
@@ -255,6 +289,7 @@ PRID2026001-Voting-Portal/
 - **POST** `/api/voting/vote`
 - **Headers**: `Authorization: Bearer <user_token>`
 - **Description**: Cast a vote on a poll
+- **Note**: Store the user JWT token in an HTTP-only cookie after login. Retrieve it from the cookie and include in the Authorization header for voting requests.
 - **Payload**:
   ```json
   {
@@ -275,6 +310,7 @@ PRID2026001-Voting-Portal/
 - **GET** `/api/voting/results/:pollId`
 - **Headers**: `Authorization: Bearer <admin_token>`
 - **Description**: Get detailed results for a poll
+- **Note**: Retrieve the admin JWT token from the HTTP-only cookie and include in the Authorization header.
 - **Response**:
   ```json
   {
@@ -325,12 +361,19 @@ Common HTTP status codes:
 ## Security Features
 
 - **Password Hashing**: bcrypt with salt rounds
-- **JWT Tokens**: Secure authentication
+- **JWT Tokens**: Secure authentication with HTTP-only cookies for storage
 - **Fingerprint Verification**: Additional security layer
 - **Department Authorization**: Admins restricted to their departments
 - **Input Validation**: Prevents malicious inputs
 - **CORS**: Configured for allowed origins
 - **Rate Limiting**: Can be added via middleware
+
+### Token Management
+
+- JWT tokens are issued upon successful login (admin/user)
+- Store tokens in HTTP-only cookies on the frontend to prevent XSS attacks
+- Include tokens in Authorization header (`Bearer <token>`) for authenticated requests
+- Tokens are retrieved from cookies and automatically included in request headers
 
 ## Logging
 

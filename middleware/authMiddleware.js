@@ -3,7 +3,9 @@ import { AdminModel } from "../models/AdminModel.js";
 
 const protectRoute = async (req, res, next) => {
   try {
-    const token = req.headers.authorization?.split(" ")[1];
+    let token = req.headers.authorization?.split(" ")[1];
+    // fallback to cookie if Authorization header not provided
+    if (!token && req.cookies) token = req.cookies.token;
     if (!token) {
       return res.status(401).json({ message: "No token provided" });
     }

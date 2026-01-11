@@ -52,3 +52,16 @@ export const getUserProfile = async (req, res, next) => {
     return next(new AppError("Server error", 500));
   }
 };
+
+// Get user profile
+export const getAllUserProfiles = async (req, res, next) => {
+  try {
+    const users = await User.find().select("-password");
+    if (!users) {
+      return next(new AppError("User not found", 404));
+    }
+    res.status(200).json({ success: true, users });
+  } catch (error) {
+    return next(new AppError("Server error", 500));
+  }
+};
